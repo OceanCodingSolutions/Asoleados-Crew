@@ -7,124 +7,72 @@
   <title>Mi Landing Page</title>
   <link href="../dist/output.css" rel="stylesheet" />
 
+  <style>
+    .relative:hover .absolute {
+      display: block;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-400 flex flex-col items-center">
+<body class="overflow-auto bg-gray-400 flex flex-col items-center scroll-smooth">
   <!--HEADER-->
-  <header class="bg-white w-full">
+  <header id="inicio" class="bg-white w-full">
     <div class=" w-full ">
       <div x-data="{ open: false }"
         class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="flex flex-row items-center justify-between lg:justify-start">
           <img src="../img/logo.png" class="w-[120px] h-[70px]" />
-          <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
-              <path x-show="!open" fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                clip-rule="evenodd"></path>
-              <path x-show="open" fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd" style="display: none"></path>
-            </svg>
-          </button>
         </div>
-        <nav :class="{'flex': open, 'hidden': !open}"
-          class="flex-col items-center flex-grow hidden pb-4 border-blue-600 md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2">
-          <a class="px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
-            href="#">About</a>
-          <a class="px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
-            href="#">Contact</a>
-            <button
-            class="h-full p-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700"
-          >
-            <span class="sr-only">Menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-      
-        <div
-          class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
-          role="menu"
-        >
-          <div class="p-2">
-            <a
-              href="#"
-              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-              role="menuitem"
-            >
-              View on Storefront
+        <div class="relative">
+          <div class="inline-flex items-center overflow-hidden rounded-md border bg-white">
+            <a href="#" class="border-e px-4 py-2 text-sm/none text-gray-600 hover:bg-gray-50 hover:text-gray-700">
+              Edit
             </a>
-      
-            <a
-              href="#"
-              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-              role="menuitem"
-            >
-              View Warehouse Info
-            </a>
-      
-            <a
-              href="#"
-              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-              role="menuitem"
-            >
-              Duplicate Product
-            </a>
-      
-            <a
-              href="#"
-              class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-              role="menuitem"
-            >
-              Unpublish Product
-            </a>
-      
-            <form method="POST" action="#">
-              <button
-                type="submit"
-                class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
-                role="menuitem"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                  />
-                </svg>
-      
-                Delete Product
-              </button>
-            </form>
+        
+            <button class="h-full p-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700">
+              <span class="sr-only">Menu</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        
+          <div class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg hidden" role="menu">
+            <div class="p-2">
+              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
+                View on Storefront
+              </a>
+        
+              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
+                View Warehouse Info
+              </a>
+        
+              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
+                Duplicate Product
+              </a>
+        
+              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
+                Unpublish Product
+              </a>
+        
+              <form method="POST" action="#">
+                <button type="submit" class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50" role="menuitem">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                  Delete Product
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-        </nav>
       </div>
     </div>
   </header>
   <!--END HEADER-->
 
   <!--Hero-->
-  <section class="w-full" style="background-image: url('../img/fondo.png'); background-repeat: no-repeat;">
+  <section class="w-screen mx-auto" style="background-image: url('../img/fondo.png'); background-repeat: no-repeat;">
     <div class="max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
       <div class="flex flex-wrap items-start mx-auto max-w-7xl">
         <div
@@ -136,13 +84,13 @@
             and landing pages built with Tailwind CSS, HTML &amp; Next.js.</p>
           <div class="mt-0 lg:mt-6 max-w-7xl sm:flex">
             <div class="mt-3 rounded-lg sm:mt-0">
-              <button
+              <button onclick="Contacto()"
                 class="items-center block px-10 py-4 text-base font-medium 
                 text-center text-white transition duration-500 ease-in-out 
                 transform bg-purple-100 rounded-xl hover:bg-blue-700 
                 focus:outline-none focus:ring-2 focus:ring-offset-2 
                 focus:ring-blue-500">
-                <a href="#contact" class="h-full w-full">
+                <a class="h-full w-full">
                   Contáctanos
                 </a>
                 </button>
@@ -158,7 +106,6 @@
   <section class="m-4 p-4 rounded-lg container bg-white text-gray-600 body-font  
   flex flex-col justify-center">
     <h2 class="text-center text-4xl font-bold text-purple-100">Aprende con el Crew</h2>
-    <hr class="w-[80%] mt-3 mb-5 mx-auto">
       <!--TIK TOK-->
         <blockquote class="tiktok-embed" 
         cite="https://www.tiktok.com/@asoleadosinstalaciones"
@@ -188,7 +135,7 @@
           </div>
         </div>
       </div>
-      <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
           <div class="relative z-10 lg:py-16">
             <div class="relative h-64 sm:h-80 lg:h-full">
@@ -210,7 +157,7 @@
             <span class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-white"></span>
       
             <div class="p-8 sm:p-16 lg:p-24">
-              <h2 class="text-2xl font-bold sm:text-3xl text-gray-200">
+              <h2 class="text-2xl font-bold sm:text-3xl text-purple-100">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, debitis.
               </h2>
       
@@ -221,7 +168,7 @@
               </p>
       
               <a
-                href="#"
+                href=""
                 class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
               >
                 Get in Touch
@@ -243,9 +190,9 @@
         <img class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm shadow-xl" src="../img/1.jpg" alt="Imagen 1" />
       
         <div class="text-center sm:text-left p-10">
-          <h2 class="mb-5 text-xl font-bold text-purple-100">Lorem Ipsum</h2>
+          <h2 class="mb-5 text-xl font-bold text-purple-100">Moderniza tu empresa.</h2>
           <p class="text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a rhoncus mi. Ut vel varius sapien, id condimentum lorem.
+            Instala hasta 0.5 Mw, y compite al margen de los lideres comerciales.
           </p>
         </div>
       </article>
@@ -289,20 +236,18 @@
   <!--END AboutUs-->
 
   <!--Contacto-->
-  <section id="second_banner" class="container h-auto mx-auto bg-cover bg-center rounded-lg" style="background-image: url('../img/4.png')">
+  <section id="contact" class="container h-auto p-10 mx-auto bg-cover bg-center rounded-lg" style="background-image: url('../img/4.png')">
     <div class="grid justify-center m-4">
       <div class="max-w-2xl">
         <h1 class="text-4xl font-bold font-serif text-center text-purple-100 sm:text-6xl">
           ¿Necesitas ayuda con algo?
         </h1>
-        <br />
-        <p class="text-lg font-semibold text-gray-600 sm:text-xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a rhoncus mi. Ut vel varius sapien, id condimentum lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+        <p class="mt-8 text-lg text-center font-semibold text-gray-600 sm:text-xl">
+          Puedes contactarnos vía telefonica.
         </p>
-        <br />
-        <div class="flex justify-center">
-          <a class="w-64 sm:w-80 bg-purple-100 hover:bg-blue-700 duration-75 text-center text-white p-2 rounded">
-            Contacto
+        <div class="flex justify-center mt-4">
+          <a href="tel:+7551211432" class="w-64 sm:w-80 bg-purple-100 hover:bg-blue-700 duration-75 text-center text-white p-2 rounded">
+            Llamar
           </a>
         </div>
       </div>
@@ -310,21 +255,16 @@
   </section>
 
   <!-- component -->
-<section id="contact" class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center 
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center 
  bg-white rounded-lg shadow-2xl m-4">
 
   <div class="bg-indigo-600 flex-1 h-full">
     <img src="../img/7.jpg" class="h-full">
   </div>
-
-  <div class="bg-white w-auto md:max-w-md lg:max-w-full 
+  <div class="bg-white md:max-w-md lg:max-w-full 
         flex-1 flex items-center justify-center w-full">
-
     <div class="w-full h-100 m-4">
-
-
-      <h1 class="text-xl md:text-2xl font-bold leading-tight ">Contactanos.</h1>
-
+      <h1 class="text-xl md:text-2xl font-bold leading-tight ">O también vía correco electronico.</h1>
       <form class="mt-6" action="https://formsubmit.co/alanzihua@gmail.com" method="POST">
         <div>
           <label class="block text-gray-700">Nombre</label>
@@ -491,11 +431,12 @@
         <span class="mt-2 text-sm font-light text-yellow-200">
           Copyright © 2020 - 2021
           <a href="https://wickedlabs.dev" class="mx-2 text-wickedblue hover:text-gray-500"
-            rel="noopener noreferrer">@wickedlabsHQ</a>. Since 2020
+            rel="noopener noreferrer">@asoleadoscrew</a>. Since 2020
         </span>
       </div>
     </div>
   </footer>
+  <script src="../js/menu.js"></script>
 </body>
 
 </html>

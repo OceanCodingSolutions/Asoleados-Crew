@@ -4,71 +4,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Landing Page</title>
-  <link href="../dist/output.css" rel="stylesheet" />
+  <title>Asoleados Crew</title>
+  <link rel="icon" href="../img/logo.png" type="image/x-icon">
 
-  <style>
-    .relative:hover .absolute {
-      display: block;
-    }
-  </style>
+  <link href="../dist/output.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 
 <body class="overflow-auto bg-gray-400 flex flex-col items-center scroll-smooth">
   <!--HEADER-->
-  <header id="inicio" class="bg-white w-full">
-    <div class=" w-full ">
-      <div x-data="{ open: false }"
-        class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-        <div class="flex flex-row items-center justify-between lg:justify-start">
-          <img src="../img/logo.png" class="w-[120px] h-[70px]" />
-        </div>
-        <div class="relative">
-          <div class="inline-flex items-center overflow-hidden rounded-md border bg-white">
-            <a href="#" class="border-e px-4 py-2 text-sm/none text-gray-600 hover:bg-gray-50 hover:text-gray-700">
-              Edit
-            </a>
-        
-            <button class="h-full p-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700">
-              <span class="sr-only">Menu</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-        
-          <div class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg hidden" role="menu">
-            <div class="p-2">
-              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
-                View on Storefront
-              </a>
-        
-              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
-                View Warehouse Info
-              </a>
-        
-              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
-                Duplicate Product
-              </a>
-        
-              <a href="#" class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700" role="menuitem">
-                Unpublish Product
-              </a>
-        
-              <form method="POST" action="#">
-                <button type="submit" class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50" role="menuitem">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                  </svg>
-                  Delete Product
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+  <nav class="bg-white p-4 w-full">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="">
+        <img src="../img/logo.png" alt="Asoleados Logo" class="h-20">
+      </div>
+      <div>
+        <!-- Botón de menú para dispositivos móviles -->
+        <button class="lg:hidden text-gray-300 focus:outline-none focus:ring" id="menu-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+
+        <!-- Menú de navegación -->
+        <ul class="hidden lg:flex space-x-4" id="menu-items">
+          <li><a href="#aprende" class="text-yellow-400 font-bold ml-4 hover:text-gray-300">Aprende</a></li>
+          <li><a href="#about" class="text-yellow-400 font-bold hover:text-gray-300">Beneficios</a></li>
+          <li><a href="#contact" class="text-yellow-400 font-bold hover:text-gray-300">Contacto</a></li>
+        </ul>
       </div>
     </div>
-  </header>
+
+  </nav>
+
+  <!-- Script para activar el menú móvil -->
+  <script>
+    const menuButton = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu-items');
+
+    menuButton.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
+
   <!--END HEADER-->
 
   <!--Hero-->
@@ -76,16 +58,21 @@
     <div class="max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
       <div class="flex flex-wrap items-start mx-auto max-w-7xl">
         <div
-          class="flex flex-col justify-center items-start -mr-3.5 mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-          <span class="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase"> Your tagline </span>
+          class="p-4 flex flex-col justify-center items-start -mr-3.5 mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
           <h1 class="mb-8 text-4xl text-yellow-200 font-bold leading-none tracking-tighter md:text-7xl lg:text-5xl">
-            Medium length display headline.</h1>
-          <p class="mb-8 text-base leading-relaxed text-left text-gray-500">Free and Premium themes, UI Kit's, templates
-            and landing pages built with Tailwind CSS, HTML &amp; Next.js.</p>
+            Las energías limpias son el presente !!!
+          </h1>
+          <p class="mb-8 text-base leading-relaxed text-left text-white sm:p-8">
+            La industria solar sigue evolucionando, con constantes avances en tecnología y diseño de paneles solares.
+            Esto incluye mejoras en la eficiencia,
+            la durabilidad y la estética de los paneles.<br>
+          <h3 class="mb-8 text-4xl text-yellow-200 font-bold leading-none tracking-tighter text-base">
+            ¿Qué esperas para aprovechar la energía solar?
+          </h3>
+          </p>
           <div class="mt-0 lg:mt-6 max-w-7xl sm:flex">
             <div class="mt-3 rounded-lg sm:mt-0">
-              <button onclick="Contacto()"
-                class="items-center block px-10 py-4 text-base font-medium 
+              <button onclick="Contacto()" class="items-center block px-10 py-4 text-base font-medium 
                 text-center text-white transition duration-500 ease-in-out 
                 transform bg-purple-100 rounded-xl hover:bg-blue-700 
                 focus:outline-none focus:ring-2 focus:ring-offset-2 
@@ -93,7 +80,7 @@
                 <a class="h-full w-full">
                   Contáctanos
                 </a>
-                </button>
+              </button>
             </div>
           </div>
         </div>
@@ -101,152 +88,236 @@
     </div>
   </section>
   <!--END HERO-->
-   
-  <!--Section of Social Networks-->
+
+  <!--Section of Social Networks #00739f-->
   <section class="m-4 p-4 rounded-lg container bg-white text-gray-600 body-font  
-  flex flex-col justify-center">
-    <h2 class="text-center text-4xl font-bold text-purple-100">Aprende con el Crew</h2>
-      <!--TIK TOK-->
-        <blockquote class="tiktok-embed" 
-        cite="https://www.tiktok.com/@asoleadosinstalaciones"
-          data-unique-id="asoleadosinstalaciones" 
-          data-embed-type="creator" 
-          style="max-width: 780px; min-width: 288px;">
-          <section>
-            <a target="_blank"
-              href="https://www.tiktok.com/@asoleadosinstalaciones?refer=creator_embed">@asoleadosinstalaciones
-            </a>
-          </section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-      <!--END TIK TOK-->
-      <!--SOCIAL FACEBOOK AND INSTAGRAM-->
-      <div id="face_insta" class="m-4 mx-auto w-700 bg-white grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div id="facebook" class="w-[350px] h-[500px] md:w-auto md:h-auto">
-          <div class="flex justify-start">
-            <div class="w-full w-350 h-500 md:w-auto md:h-auto">
-              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100092239939425&tabs=timeline&width=350&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1294899624624205" width="350" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </div>
-          </div>
-        </div>
-        <div id="insta" class="h-auto"">
-          <div class="flex justify-center flex-wrap">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CtIPDbhPl-9/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:350px; min-width:350px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CtIPDbhPl-9/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Ver esta publicación en Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CtIPDbhPl-9/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Una publicación compartida por los asoleados (@asoleadoscrew)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+  flex flex-col justify-center" id="aprende">
+    <h2 class="text-center text-4xl font-bold text-gray-700">Aprende con el Crew</h2>
+    <p class="mt-2 text-gray-300 text-center">
+      Hemos creado redes sociales con el objetivo de enseñar sobre las energías renovables. Siguenos en cada una y
+      aprende!!
+    </p>
+    <!--TIK TOK-->
+    <h3 class="mt-4  text-gray-500 font-size text-center text-xl font-bold">Tik Tok</h3>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asoleadosinstalaciones"
+      data-unique-id="asoleadosinstalaciones" data-embed-type="creator" style="max-width: 780px; min-width: 288px;">
+      <section>
+        <a target="_blank"
+          href="https://www.tiktok.com/@asoleadosinstalaciones?refer=creator_embed">@asoleadosinstalaciones
+        </a>
+      </section>
+    </blockquote>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+    <!--END TIK TOK-->
+    <!--SOCIAL FACEBOOK AND INSTAGRAM-->
+    <div id="face_insta" class="m-4 mx-auto w-700 bg-white grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div id="facebook" class="w-[350px] h-[500px] md:w-auto md:h-auto">
+        <h3 class="mt-4 mb-5 text-gray-500 font-size text-center text-xl font-bold"> Facebook</h3>
+        <div class="flex justify-start">
+          <div class="w-full w-350 h-500 md:w-auto md:h-auto">
+            <iframe
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100092239939425&tabs=timeline&width=350&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1294899624624205"
+              width="350" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           </div>
         </div>
       </div>
-      <div class="mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-          <div class="relative z-10 lg:py-16">
-            <div class="relative h-64 sm:h-80 lg:h-full">
-              <div class="absolute inset-0 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 h-full w-full object-cover">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/SI49CElWyIs"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
-      
-          <div class="relative flex items-center bg-white">
-            <span class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-white"></span>
-      
-            <div class="p-8 sm:p-16 lg:p-24">
-              <h2 class="text-2xl font-bold sm:text-3xl text-purple-100">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, debitis.
-              </h2>
-      
-              <p class="mt-4 text-black">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, molestiae! Quidem est esse numquam odio
-                deleniti, beatae, magni dolores provident quaerat totam eos, aperiam architecto eius quis quibusdam fugiat
-                dicta.
-              </p>
-      
-              <a
-                href=""
-                class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-              >
-                Get in Touch
+      <div id="insta" class="h-auto">
+        <h3 class="mt-4 mb-5 text-gray-500 font-size text-center text-xl font-bold">Instagram</h3>
+        <div class="flex justify-center flex-wrap">
+          <blockquote class="instagram-media" data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/CtIPDbhPl-9/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:350px; min-width:350px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            <div style="padding:16px;"> <a
+                href="https://www.instagram.com/p/CtIPDbhPl-9/?utm_source=ig_embed&amp;utm_campaign=loading"
+                style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                target="_blank">
+                <div style=" display: flex; flex-direction: row; align-items: center;">
+                  <div
+                    style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                    <div
+                      style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                    </div>
+                    <div
+                      style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                    </div>
+                  </div>
+                </div>
+                <div style="padding: 19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px"
+                    viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg"
+                    xmlns:xlink="https://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                        <g>
+                          <path
+                            d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                          </path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg></div>
+                <div style="padding-top: 8px;">
+                  <div
+                    style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                    Ver esta publicación en Instagram</div>
+                </div>
+                <div style="padding: 12.5% 0;"></div>
+                <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                  <div>
+                    <div
+                      style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                    </div>
+                    <div
+                      style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                    </div>
+                    <div
+                      style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                    </div>
+                  </div>
+                  <div style="margin-left: 8px;">
+                    <div
+                      style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                    </div>
+                    <div
+                      style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                    </div>
+                  </div>
+                  <div style="margin-left: auto;">
+                    <div
+                      style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                    </div>
+                    <div
+                      style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                    </div>
+                    <div
+                      style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                  <div
+                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                  </div>
+                  <div
+                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                  </div>
+                </div>
               </a>
+              <p
+                style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                <a href="https://www.instagram.com/p/CtIPDbhPl-9/?utm_source=ig_embed&amp;utm_campaign=loading"
+                  style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                  target="_blank">Una publicación compartida por los asoleados (@asoleadoscrew)</a>
+              </p>
+            </div>
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto px-4 py-16 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+        <div class="relative z-10 lg:py-16">
+          <div class="relative h-64 sm:h-80 lg:h-full">
+            <div
+              class="absolute inset-0 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 h-full w-full object-cover">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SI49CElWyIs"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
           </div>
         </div>
+
+        <div class="relative flex items-center bg-white">
+          <span class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-white"></span>
+          <div class="p-8 sm:p-16 lg:p-24">
+            <h2 class="text-2xl font-bold sm:text-3xl text-gray-500">
+              ¿Sabías que aprender sobre paneles solares es como descubrir el secreto del brillo del sol?
+            </h2>
+            <p class="mt-4 text-gray-300">
+              ¡Conviértete en un maestro de la electricidad solar y enciende tu conocimiento al siguiente nivel con los
+              tutoriales de <bold class="text-yellow-300 font-bold">
+                Asoleados Crew
+              </bold>!💡🌞.
+            </p>
+          </div>
+        </div>
       </div>
-      
+    </div>
+
     </div>
   </section>
   <!--END Social Networks-->
 
   <!--AboutUs-->
-  <section class="container w-auto h-auto mb-0 mx-auto bg-transparent">
-    <div class="container grid grid-rows-4">
+  <section class="container w-auto h-auto mb-0 mx-auto bg-transparent" id="about">
+    <div class="container grid grid-rows-3">
       <article class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center 
       p-10 bg-white rounded-lg shadow-2xl m-4">
-        <img class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm shadow-xl" src="../img/1.jpg" alt="Imagen 1" />
-      
+        <img
+          class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm shadow-xl"
+          src="../img/1.jpg" alt="Imagen 1" />
+
         <div class="text-center sm:text-left p-10">
-          <h2 class="mb-5 text-xl font-bold text-purple-100">Moderniza tu empresa.</h2>
+          <h2 class="mb-5 text-xl font-bold text-gray-300">Moderniza tu empresa.</h2>
           <p class="text-gray-300">
-            Instala hasta 0.5 Mw, y compite al margen de los lideres comerciales.
+            Instala hasta 0.5 Mw, y compite al margen de los lideres comerciales.💪🚀
           </p>
         </div>
       </article>
       <!------------------------------------------------------------->
       <article class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center p-10 bg-white rounded-lg shadow-xl m-4">
         <div class="text-center sm:text-left p-10">
-          <h2 class="mb-5 text-xl font-bold text-start text-purple-100">
-            Lorem Ipsum
+          <h2 class="mb-5 text-xl font-bold text-start text-gray-300">
+            Dale un abrazo a la independencia energética.
           </h2>
           <p class="hover:animate__animated animate__zoomIn text-justify text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a rhoncus mi. Ut vel varius sapien, id condimentum lorem.
+            Con paneles solares, no solo generas electricidad, ¡sino también libertad para tu hogar y tu bolsillo! 🔆💡
           </p>
         </div>
-        <img class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm" src="../img/2.png" alt="Imagen 1" />
+        <img
+          class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm"
+          src="../img/2.png" alt="Imagen 1" />
       </article>
       <!----------------------------------------------------------------------------->
       <article class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center p-10 bg-white rounded-lg shadow-2xl m-4">
-        <img class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm" src="../img/1.jpg" alt="Imagen 1" />
-      
+        <img
+          class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm"
+          src="../img/banner_3.jpg" alt="Imagen 1" />
+
         <div class="text-center sm:text-left p-10">
-          <h2 class="mb-5 text-xl font-bold text-purple-100">Lorem Ipsum</h2>
+          <h2 class="mb-5 text-xl font-bold text-gray-300">Mide tu consumo</h2>
           <p class="text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a rhoncus mi. Ut vel varius sapien, id condimentum lorem.
+            Tu factura de luz no tiene por qué ser un misterio sin resolver. Con paneles solares, puedes descifrar el
+            ahorro en tu factura mientras cuidas el planeta. 💰🌍
           </p>
         </div>
-      </article>
-      <article class="grid grid-cols-1 sm:grid-cols-2 gap-4 
-      place-items-center p-10 bg-white rounded-lg shadow-xl m-4">
-        <div class="text-center sm:text-left p-10">
-          <h2 class="mb-5 text-xl font-bold text-start text-purple-100">
-            Lorem Ipsum
-          </h2>
-          <p class="text-justify text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a rhoncus mi. Ut vel varius sapien, id condimentum lorem.
-          </p>
-        </div>
-        <img class="w-full h-auto sm:h-[369px] sm:w-auto md:w-[501px] md:h-[369px] ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-sm" src="../img/4.png" alt="Imagen 1" />
       </article>
     </div>
   </section>
   <!--END AboutUs-->
 
   <!--Contacto-->
-  <section id="contact" class="container h-auto p-10 mx-auto bg-cover bg-center rounded-lg" style="background-image: url('../img/4.png')">
+  <section id="contact" class="container h-auto p-10 mx-auto bg-cover bg-center rounded-lg"
+    style="background-image: url('../img/4.png')">
     <div class="grid justify-center m-4">
       <div class="max-w-2xl">
-        <h1 class="text-4xl font-bold font-serif text-center text-purple-100 sm:text-6xl">
+        <h1 class="text-4xl font-bold font-serif text-center text-yellow-200 sm:text-6xl">
           ¿Necesitas ayuda con algo?
         </h1>
-        <p class="mt-8 text-lg text-center font-semibold text-gray-600 sm:text-xl">
-          Puedes contactarnos vía telefonica.
+        <p class="mt-8 text-lg text-center font-semibold text-yellow-200 sm:text-xl">
+          Puedes contactarnos vía telefonica al número: <span class="text-gray-300">81 2907 1618</span>
         </p>
         <div class="flex justify-center mt-4">
-          <a href="tel:+7551211432" class="w-64 sm:w-80 bg-purple-100 hover:bg-blue-700 duration-75 text-center text-white p-2 rounded">
+          <a href="tel:+8129071618"
+            class="w-64 sm:w-80 bg-purple-100 hover:bg-blue-700 duration-75 text-center text-white p-2 rounded">
             Llamar
           </a>
         </div>
@@ -255,46 +326,48 @@
   </section>
 
   <!-- component -->
-<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center 
+  <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center 
  bg-white rounded-lg shadow-2xl m-4">
 
-  <div class="bg-indigo-600 flex-1 h-full">
-    <img src="../img/7.jpg" class="h-full">
-  </div>
-  <div class="bg-white md:max-w-md lg:max-w-full 
-        flex-1 flex items-center justify-center w-full">
-    <div class="w-full h-100 m-4">
-      <h1 class="text-xl md:text-2xl font-bold leading-tight ">O también vía correco electronico.</h1>
-      <form class="mt-6" action="https://formsubmit.co/alanzihua@gmail.com" method="POST">
-        <div>
-          <label class="block text-gray-700">Nombre</label>
-          <input type="text" name="Nombre" id="" placeholder="Ingrese su nombre" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
-        </div>
-
-        <div class="mt-4">
-          <label class="block text-gray-700">Apellidos</label>
-          <input type="text" name="Apellidos" id="" placeholder="Ingrese sus apellidos" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
-        </div>
-
-        <div class="mt-4">
-          <label class="block text-gray-700">Correo Electronico</label>
-          <input type="email" name="Correo" id="" placeholder="Ingresa tu correo" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
-        </div>
-
-        <div class="mt-4">
-          <label class="block text-gray-700">Mensaje</label>
-          <textarea name="Cotizacion" id="" placeholder="Ingresa el mensaje" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required></textarea>
-        </div>
-
-        <button type="submit" class="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
-              px-4 py-3 mt-6">Enviar</button>
-      </form>      
+    <div class="bg-indigo-600 flex-1 h-full">
+      <img src="../img/7.jpg" class="h-full">
     </div>
-  </div>
+    <div class="bg-white md:max-w-md lg:max-w-full 
+        flex-1 flex items-center justify-center w-full">
+      <div class="w-full h-100 m-4">
+        <h1 class="text-xl md:text-2xl font-bold leading-tight text-gray-300 ">Solicita tu cotización sin costo!!</h1>
+        <form class="mt-6" id="form" action="" method="POST">
+          <div>
+            <label class="block text-gray-700">Su nombre</label>
+            <input type="text" name="name" id="name" placeholder="Pedro Juarez"
+              class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              autocomplete required>
+          </div>
 
-</section>
-<!--END Contacto-->
-<!--Footer-->
+          <div class="mt-4">
+            <label class="block text-gray-700">Su dirección de correo</label>
+            <input type="email" name="Correo" id="" placeholder="pj@gmail.com"
+              class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              autocomplete required>
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-gray-700">Su mensaje</label>
+            <textarea id="message" name="message" id="" placeholder="Hola quisiera cotizar..."
+              class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              autocomplete required></textarea>
+          </div>
+          <button type="submit" class="btn primary full">enviar mensaje</button>
+
+        </form>
+        <a id="send_email" href="mailto:mamanzasanchez@gmail.com" class="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
+              px-4 py-3 mt-6">Enviar</a>
+      </div>
+    </div>
+
+  </section>
+  <!--END Contacto-->
+  <!--Footer-->
   <footer class="bg-yellow-200 w-screen" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
 
@@ -302,123 +375,49 @@
       <div class="xl:grid xl:grid-cols-3 xl:gap-8">
         <div class="text-white xl:col-span-1">
           <img src="../img/logo.png" class="w-[120px] h-[70px]" />
-          <p class="w-1/2 mt-2 text-sm text-gray-500">Wicked templates for wicked dev's</p>
+          <p class="w-1/2 mt-2 text-sm text-gray-500">Somos un grupo de profesionales instalando paneles solares y haciendo conexiones eléctricas.</p>
         </div>
         <div class="grid grid-cols-2 gap-8 mt-12 xl:mt-0 xl:col-span-2">
           <div class="md:grid md:grid-cols-2 md:gap-8">
             <div>
-              <h3 class="text-sm font-bold tracking-wider text-blue-500 uppercase">Navigation</h3>
+              <h3 class="text-sm font-bold tracking-wider text-gray-300 uppercase">Menú</h3>
               <ul role="list" class="mt-4 space-y-2">
                 <li>
-                  <a href="./pricing.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Pricing </a>
+                  <a href="#aprende" class="text-base font-normal text-gray-500 hover:text-blue-600"> Aprende </a>
                 </li>
                 <li>
-                  <a href="./templates.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> All
-                    Templates </a>
+                  <a href="#about" class="text-base font-normal text-gray-500 hover:text-blue-600"> 
+                    Nosotros </a>
                 </li>
                 <li>
-                  <a href="./landing-pages.html" class="text-base font-normal text-gray-500 hover:text-blue-600">
-                    Landing Pages </a>
-                </li>
-                <li>
-                  <a href="./nextjs.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Next.js
-                    Templates </a>
-                </li>
-                <li>
-                  <a href="./multi-page.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Full
-                    Templates </a>
-                </li>
-                <li>
-                  <a href="./demos.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Free Templates
-                  </a>
-                </li>
-                <li>
-                  <a href="./documentation.html" class="text-base font-normal text-gray-500 hover:text-blue-600">
-                    Documentation </a>
-                </li>
-                <li>
-                  <a href="./expo.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Customers </a>
-                </li>
-                <li>
-                  <a href="https://wickedlabs.dev/" class="text-base font-normal text-gray-500 hover:text-blue-600">
-                    About </a>
+                  <a href="#contact" class="text-base font-normal text-gray-500 hover:text-blue-600">
+                    Contacto </a>
                 </li>
               </ul>
             </div>
+            
             <div class="mt-12 md:mt-0">
-              <h3 class="text-sm font-bold tracking-wider text-blue-500 uppercase">UI/UX &amp; Dev</h3>
-              <ul role="list" class="mt-4 space-y-2">
+              <h3 class="text-sm font-bold tracking-wider text-gray-300 uppercase">Encuéntranos en:</h3>
+              <ul role="list" class="mt-4 space-y-2 justify-center">
                 <li>
-                  <a href="https://www.wickedblocks.dev"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Wickled Blocks </a>
+                  <a href="https://www.facebook.com/profile.php?id=100092239939425" target="_blank" rel="noopener noreferrer" class="text-gray-300">
+                    <i class="fab fa-facebook"></i>
+                </a>
                 </li>
                 <li>
-                  <a href="https://www.wickedbackgrounds.com/"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Wicked Backgrounds </a>
+                  <a href="https://www.instagram.com/asoleadoscrew/?ig_rid=7354b14e-e388-477e-b89b-bc14d87b4fed" target="_blank" rel="noopener noreferrer" class="text-pink-500">
+                    <i class="fab fa-instagram"></i>
+                </a>
                 </li>
                 <li>
-                  <a href="https://wickedpopups.com/" class="text-base font-normal text-gray-500 hover:text-blue-600">
-                    Wicked Popup's </a>
+                  <a href="https://www.youtube.com/@Asoleados/featured" target="_blank" rel="noopener noreferrer" class="text-red-500">
+                    <i class="fab fa-youtube"></i>
+                </a>
                 </li>
                 <li>
-                  <a href="https://www.colorsandfonts.com/.html"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Colors &amp; Fonts </a>
-                </li>
-                <li>
-                  <a href="https://30daysoftailwindcss.com/"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> 30 Days Of Tailwind CSS</a>
-                </li>
-                <li>
-                  <a href="https://www.wvsc.dev/.html" class="text-base font-normal text-gray-500 hover:text-blue-600">
-                    Wicked VS Code</a>
-                </li>
-                <li>
-                  <a href="https://www.brutalist.one/.html"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Brutalist Websites</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3 class="text-sm font-bold tracking-wider text-blue-500 uppercase">Legal</h3>
-              <ul role="list" class="mt-4 space-y-2">
-                <li>
-                  <a href="./changelog.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Changelog
-                  </a>
-                </li>
-                <li>
-                  <a href="./faq.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> FAQ </a>
-                </li>
-                <li>
-                  <a href="./refund.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Refund </a>
-                </li>
-                <li>
-                  <a href="./license.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> License </a>
-                </li>
-                <li>
-                  <a href="./privacy.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Privacy
-                    Policy </a>
-                </li>
-                <li>
-                  <a href="./terms.html" class="text-base font-normal text-gray-500 hover:text-blue-600"> Terms </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-12 md:mt-0">
-              <h3 class="text-sm font-bold tracking-wider text-blue-500 uppercase">Socials</h3>
-              <ul role="list" class="mt-4 space-y-2">
-                <li>
-                  <a href="https://twitter.com/WickedTemplates"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Facebook </a>
-                </li>
-                <li>
-                  <a href="https://dribbble.com/MichaelAndreuzza.html"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Instagram </a>
-                </li>
-                <li>
-                  <a href="https://www.indiehackers.com/product/wicked-templates"
-                    class="text-base font-normal text-gray-500 hover:text-blue-600"> Tik tok </a>
+                  <a href="https://www.tiktok.com/@asoleadosinstalaciones" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok"></i>
+                </a>
                 </li>
               </ul>
             </div>
@@ -429,14 +428,27 @@
     <div class="px-4 py-12 mx-auto bg-gray-200 max-w-7xl sm:px-6 lg:px-16">
       <div class="flex flex-wrap justify-center items-baseline">
         <span class="mt-2 text-sm font-light text-yellow-200">
-          Copyright © 2020 - 2021
-          <a href="https://wickedlabs.dev" class="mx-2 text-wickedblue hover:text-gray-500"
-            rel="noopener noreferrer">@asoleadoscrew</a>. Since 2020
+          Copyright © Asoleados Crew 2023
         </span>
       </div>
     </div>
   </footer>
   <script src="../js/menu.js"></script>
+  <script>
+    const $form = document.querySelector('#form')
+    const $buttonMailto = document.querySelector('#send_email')
+
+    $form.addEventListener('submit', handleSubmit)
+
+    function handleSubmit(event) {
+      event.preventDefault()
+      const form = new FormData(this)
+      const subjet = `mailto:mamanzasanchez@gmail.com?subject=nombre ${form.get('name')}  correo ${form.get('email')}&body=${form.get('message')}`;
+      console.log(subjet)
+      $buttonMailto.setAttribute('href', `mailto:mamanzasanchez@gmail.com?subject=nombre ${form.get('name')}  correo ${form.get('email')}&body=${form.get('message')}`)
+      $buttonMailto.click()
+    }
+  </script>
 </body>
 
 </html>
